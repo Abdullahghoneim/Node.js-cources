@@ -4,6 +4,8 @@ const fs = require("fs");
 const app = express();
 app.set("view engine", "hbs");
 
+const port = process.env.PORT || 8000;
+
 // hps configrations
 hbs.registerPartials(__dirname + "/views/partials");
 
@@ -25,10 +27,10 @@ app.use((req, res, next) => {
   next();
 });
 
-// coming soon for all page
-app.use((req, res, next) => {
-  res.render("loading.hbs");
-});
+// // coming soon for all page
+// app.use((req, res, next) => {
+//   res.render("loading.hbs");
+// });
 
 // config home page
 app.get("/", (req, res) => {
@@ -47,4 +49,6 @@ app.get("/about", (req, res) => {
 // bublic html file
 app.use(express.static(__dirname + "/pubilc"));
 
-app.listen(8000);
+app.listen(port, () => {
+  console.log(`Server runing on port ${port} `);
+});
