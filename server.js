@@ -27,11 +27,6 @@ app.use((req, res, next) => {
   next();
 });
 
-// // coming soon for all page
-// app.use((req, res, next) => {
-//   res.render("loading.hbs");
-// });
-
 // config home page
 app.get("/", (req, res) => {
   res.render("home.hbs", {
@@ -44,6 +39,10 @@ app.get("/about", (req, res) => {
   res.render("about.hbs", {
     pageTitle: "this is about page"
   });
+});
+
+app.get("/developer", (req, res) => {
+  res.render("developer.hbs");
 });
 
 // bublic html file
